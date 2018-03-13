@@ -1,0 +1,15 @@
+---
+
+- name: Service Up Wordpress Nginx Server
+  hosts: web
+  remote_user: root
+  roles:
+    - serversett
+    - nginx
+    - php
+
+- name: Service Up MySQL Database Server
+  hosts: db
+  remote_user: root
+  roles:
+    - mysql

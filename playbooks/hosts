@@ -1,0 +1,5 @@
+[webserver-nginx-for-wordpress]
+192.168.50.10
+
+[mysql-db]
+192.168.50.20

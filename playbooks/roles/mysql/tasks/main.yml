@@ -1,0 +1,13 @@
+---
+
+
+- name: Install MySQL Database
+  yum:
+    name: mariadb
+    state: latest
+
+
+- name: Install MYSQL Database Server
+  yum:
+    name: mariadb-server
+    state: latest

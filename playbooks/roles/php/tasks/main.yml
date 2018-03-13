@@ -1,0 +1,12 @@
+---
+
+- name: Install PHP7 for Nginx, Wordpress
+  yum:
+    name: php
+    state: latest
+
+
+- name: Install PHP-FPM
+  yum:
+    name: php-fpm
+    state: latest

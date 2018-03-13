@@ -1,0 +1,12 @@
+---
+
+- name: Upgrade Server
+  yum:
+    update_cache=yes
+    name=*
+    state=latest
+    update_cache=yes
+
+- name: Disable selinux
+  selinux: state=disabled
+  sudo: yes
