@@ -17,11 +17,11 @@ Vagrant.configure("2") do |config|
     web.vm.hostname = 'vic-develop'
     web.vm.network 'private_network', ip: '192.168.50.10', virtualbox__intnet: true
 
-#    web.vm.provision 'ansible' do |ansible|
-#        ansible.sudo = true
-#        ansible.verbose = "v"        
-#        ansible.playbook = 'ansible/playbooks/main.yml'
-#      end
+    web.vm.provision 'ansible' do |ansible|
+        ansible.sudo = true
+        ansible.verbose = "v"        
+        ansible.playbook = 'playbooks/main.yml'
+      end
   end
 
   config.vm.define 'db' do |db|
@@ -31,9 +31,11 @@ Vagrant.configure("2") do |config|
       db.vm.network :forwarded_port, guest: 3306, host: 8206
 
       db.vm.provision 'ansible' do |ansible|
-          ansible.playbook = 'ansible/playbooks/main.yml'
           ansible.verbose = "v"
           ansible.sudo = true
+          ansible.playbook = 'playbooks/main.yml'
+          
+
       end
   end
 
