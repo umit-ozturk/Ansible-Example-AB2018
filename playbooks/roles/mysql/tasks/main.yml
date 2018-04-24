@@ -11,3 +11,19 @@
   yum:
     name: mariadb-server
     state: latest
+
+- name: Create Mysql configuration file
+  lineinfile: dest=/etc/mysql/my.cnf regexp='^bind-address(\s*)=' line='bind-address\1= {{ mysql_host }}'  backrefs=yes
+  notify: 
+  - restart mysql
+
+- name: Start Mysql Service
+  service: name=mysql state=started enabled=true
+
+
+- name: Create Application Database
+  mysql_db: name={{ dbname }} state=present
+
+
+- name: Create Application DB User
+  mysql_user: name={{ dbuser }} password={{ upassword }} priv=*.*:ALL host='%' state=present

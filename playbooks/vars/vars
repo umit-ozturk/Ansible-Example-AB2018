@@ -1,1 +1,8 @@
-server_hostname: www.example.com
+nginx_host: 192.168.50.10
+mysql_host: 192.168.50.20
+
+mysqlservice: mysqld
+mysql_port: 3306
+dbuser: dbuser
+dbname: dbtest
+upassword: secret
